@@ -73,8 +73,10 @@ end
 # HINT: Try to use methods you've already written to solve this!
 def print_spiciest_foods(spicy_foods)
   # your code here
-  spicy_foods.find_all do |food|
-    food[:heat_level] > 5
+  spiciest_food = spicy_foods.filter {|food| food[:heat_level]>5}
+  spiciest_food.map do |food| 
+    heat = "🌶" * food[:heat_level]
+    puts "#{food[:name]} (#{food[:cuisine]}) | Heat Level: #{heat}"
   end
 end
 
